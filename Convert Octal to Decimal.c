@@ -1,0 +1,16 @@
+//Program to convert Octal to Decimal .
+#include<stdio.h>
+int main(){
+    int num;
+    printf("Enter Octal Number: ");
+    scanf("%d",&num);
+    int decnum = 0, base =1;
+    while(num!=0){
+        int rem = num%10;
+        decnum += rem * base;
+        base *= 8;
+        num /=10;
+    }
+    printf("Decimal Number = %d",decnum);
+    return 0;
+}
