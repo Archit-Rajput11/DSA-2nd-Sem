@@ -1,5 +1,6 @@
 //Implement List Using Array.
 #include<stdio.h>
+#include<stdlib.h>
 #define MAX 100 
 int list[MAX];
 int n=0;
