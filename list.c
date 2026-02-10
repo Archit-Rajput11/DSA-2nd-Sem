@@ -24,7 +24,10 @@ void insertAtEnd(int value){
     printf("Element Inserted !!!\n");
 }
 void insertAtPosition( int pos, int value){
-    if(pos < 0 || pos >= n){
+    if(n == MAX){
+        printf("List is full !!!\n");
+    }
+    else if(pos < 0 || pos >= n){
         printf("Position is invalid !!!\n");
     }
     else{
@@ -56,7 +59,10 @@ void deleteFromEnd(){
     printf("Element is Deleted !!!\n");
 }
 void deleteFromGivenPos(int pos){
-    if(pos < 0 || pos >= n) {
+    if(n == 0){
+        printf("List is empty !!!\n");
+    }
+    else if(pos < 0 || pos >= n) {
         printf("Invalid Position\n");
     }
     else{
