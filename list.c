@@ -73,13 +73,6 @@ void deleteFromGivenPos(int pos){
         printf("Element Deleted !!!\n"); 
     }
 }
-int search(int value){
-    for(int i = 0; i<n; i++){
-        if(list[i] = value)
-            return i;
-    }
-    return -1;
-}
 void displaylist(){
     if(n == 0){
         printf("List is empty !!!\n");
@@ -89,6 +82,40 @@ void displaylist(){
         printf("%d\t", list[i]);
     }
     printf("\n");
+}
+int search(int value){
+    for(int i = 0; i<n; i++){
+        if(list[i] = value)
+            return i;
+    }
+    return -1;
+}
+void updateList(int pos, int value){
+    if(pos < 0 || pos >= 0){
+        printf("Invalid Position !!!\n");
+    }
+    else{
+        list[pos] = value;
+        printf("Element Updated !!!\n");
+    }
+}
+void bubblesort(){
+    if(n == 0){
+        printf("List is empty !!!\n");
+    }
+    else{
+        for(int i=0; i<n-1; i++){
+            for(int j=0; j<n-i-1; j++){
+                if(list[j] > list[j+1]){
+                    int temp = list[j];
+                    list[j] = list[j+1];
+                    list[j+1] = temp;
+                }
+            }
+            printf("Element Sorted");
+        }
+    }
+
 }
 int main(){
     while(1){
@@ -147,18 +174,24 @@ int main(){
                 }
                 else
                     printf("Elements Not Found !!!\n");
-                
                 break;
             case 9:
+                printf("Enter Position: ");
+                scanf("%d",&pos);
+                printf("Enter New Data: ");
+                scanf("%d",&data);
+                updateList(pos,data);
                 break;
             case 10:
+                bubblesort();
                 break;
             case 11:
+                exit(0);
                 break;
             default:
                 printf("Invalid Choice !!!\n");
-            
         }
+        printf("\n\n");
     }
     return 0;
 }
