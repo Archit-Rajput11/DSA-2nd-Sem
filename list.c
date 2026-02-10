@@ -73,7 +73,13 @@ void deleteFromGivenPos(int pos){
         printf("Element Deleted !!!\n"); 
     }
 }
-
+int search(int value){
+    for(int i = 0; i<n; i++){
+        if(list[i] = value)
+            return i;
+    }
+    return -1;
+}
 void displaylist(){
     if(n == 0){
         printf("List is empty !!!\n");
@@ -133,6 +139,15 @@ int main(){
                 displaylist();
                 break;
             case 8:
+                printf("Enter Value to search: ");
+                scanf("%d",&data);
+                int index = search(data);
+                if(index != -1){
+                    printf("Element Found At Index %d\n", index);
+                }
+                else
+                    printf("Elements Not Found !!!\n");
+                
                 break;
             case 9:
                 break;
