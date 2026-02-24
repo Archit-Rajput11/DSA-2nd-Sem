@@ -25,7 +25,7 @@ void doProcess(){
             z = y / x;
             break;
         case '^':
-            z = (int)pow(y,x);
+            z = (int)round(pow(y,x));
             break;
     }
     operand[++top1] -z;
