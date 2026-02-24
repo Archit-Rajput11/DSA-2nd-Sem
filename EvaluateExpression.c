@@ -85,11 +85,53 @@ int evalInfixExpression(char *exp){
     return operand[top1--];
 }
 
+int evalPostfixExpression(char* exp){
+    for(int i=0; i<strlen(exp);i++){
+        if(isdigit(exp[i])){
+            int num = 0;
+            while(isdigit(exp[i])){
+                num = num*10 +exp[i]-'0';
+                i++;
+            }
+            i--;
+            operand[++top1] = num;
+        }
+        else if(exp[i] == '+' || exp[i] == '-' || exp[i] == '*' || exp[i] == '/' || exp[i] == '^' ){
+            int x = operand[top1--];
+            int y = operand[top2--];
+            int z;
+            switch(exp[i]){
+                case '+':
+                    z= y + x;
+                    break;
+                case '-':
+                    z= y - x;
+                    break;
+                case '*':
+                    z= y * x;
+                    break;
+                case '/':
+                    z = y / x;
+                    break;
+                case '^':
+                    z = (int)round(pow(y,x));
+                    break;
+            }
+            operand[++top1] = z;
+        }
+    }
+    return operand[top1--];
+}
 int main(){
-    char exp[100];
-    printf("Enter Expression: ");
-    gets(exp);
-    int result = evalInfixExpression(exp);
-    printf("Result of expression %s = %d\n",exp,result);
+    char expr[100];
+    printf("Enter Prefix Expression: ");
+    gets(expr);
+    int result = evalInfixExpression(expr);
+    printf("Result of expression %s = %d\n",expr,result);
+
+    printf("Enter Postfix Expression: ");
+    gets(expr);
+    int result = evalPostfixExpression(expr);
+    printf("Result of expression %s = %d\n",expr,result);
     return 0;
 }
