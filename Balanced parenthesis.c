@@ -13,14 +13,14 @@ int main() {
             stack[++top] = ch;
         }
         else if(ch == ')' || ch == ']' || ch == '}') {
-            if(top == -1) {   // Stack empty
+            if(top == -1) { 
                 flag = 1;
                 break;
             }
             if((ch == ')' && stack[top] == '(') ||
                (ch == ']' && stack[top] == '[') ||
                (ch == '}' && stack[top] == '{')) {
-                top--;   // Correct pop
+                top--; 
             }
             else {
                 flag = 1;
