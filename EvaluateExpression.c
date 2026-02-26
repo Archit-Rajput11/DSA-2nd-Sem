@@ -173,11 +173,10 @@ int main(){
     gets(expr);
     result = evalPostfixExpression(expr);
     printf("Result of expression %s = %d\n",expr,result);
-    return 0;
 
     printf("Enter Prefix Expression: ");
     gets(expr);
     result = evalPrefixExpression(expr);
     printf("Result of expression %s = %d\n",expr,result);
-
+    return 0;
 }
