@@ -63,7 +63,7 @@ int display(){
 
 }
 int main(){
-    int choice, value;
+    int choice, data;
     while(1){
         printf("\n1. Enqueue\n");
         printf("2. Dequeue\n");
@@ -75,18 +75,18 @@ int main(){
         switch(choice){
             case 1:
                 printf("Enter value: ");
-                scanf("%d",&value);
-                Enqueue(value);
+                scanf("%d",&data);
+                enqueue(data);
                 break;
             case 2:
-                value = dequeue();
-                if(value != -1)
-                    printf("%d dequeue from the circular queue!!!\n", value);
+                data = dequeue();
+                if(data != -1)
+                    printf("%d dequeue from the circular queue!!!\n", data);
                 break;
             case 3:
-                value = peek();
-                if(value != -1)
-                    printf("%d peek from the circular queue!!!\n", value);
+                data = peek();
+                if(data != -1)
+                    printf("%d peek from the circular queue!!!\n", data);
                 break;
             case 4:
                 display();
