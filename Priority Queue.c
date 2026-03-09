@@ -90,7 +90,7 @@ int main(){
                 scanf("%d",&value);
                 printf("Enter Priority: ");
                 scanf("%d",&priority);
-                Enqueue(value,priority);
+                enqueue(value,priority);
                 break;
             case 2:
                 value = dequeue();
