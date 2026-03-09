@@ -1,16 +1,17 @@
 #include<stdio.h>
+#include<stdlib.h>
 #define MAX 100
 struct Queue{
     int data;
     int priority;
 };
-structQueue pqueue[MAX];
+struct Queue pqueue[MAX];
 int front = -1, rear = -1;
 int isEmpty(){
     return front == -1;
 }
 int isFull(){
-    return front == rear;
+    return front == MAX-1;
 }
 void enqueue(int data, int priority){
     if(isFull()){
@@ -25,7 +26,7 @@ void enqueue(int data, int priority){
     printf("Element inserted in priority queue!!!\n");
 }
 int getHighestPriority(){
-    int max = pqueue[0].priority;
+    int max = pqueue[0].priority,index;
     for(int i=0; i<=rear; i++){
         if(pqueue[i].priority > max){
             max = pqueue[i].priority;
@@ -106,8 +107,7 @@ int main(){
                 display();
                 break;
             case 5:
-                printf("Exiting...\n");
-                return 0;
+                exit(0);
             default:
                 printf("Invalid Choice\n");
         }
