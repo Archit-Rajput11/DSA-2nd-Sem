@@ -11,6 +11,12 @@ struct Node* createNode(int data){
     temp->next = NULL;
     return temp;
 }
+void insertInBeg(int data)[
+    struct Node* newNode = createNode(data);
+    newNode->next = head;
+    head = newNode;
+    printf("Node insertes in Beginning!!!\n");
+]
 int main(){
     while(1){
             int choice , data , pos;
