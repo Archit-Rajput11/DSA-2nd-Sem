@@ -50,10 +50,11 @@ int dequeue(){
         for(int i = index; i<rear; i++){
             pqueue[i] = pqueue[i+1];
         }
+        rear--;
         return val;
     }
 }
-void peek(){
+int peek(){
     if(isEmpty()){
         printf("Queue Underflow!!!\n");
         return -1;
@@ -70,11 +71,11 @@ void display(){
         return;
     }
     for(int i =0; i<= rear; i++){
-        printf("%d --> %d\n",pqueue[i].priority,pqueue[i].data);
+        printf("Priority =>%d --> %d\n",pqueue[i].priority,pqueue[i].data);
     }
 }
 int main(){
-    int choice, value;
+    int choice, value, priority;
     while(1){
         printf("\n1. Enqueue\n");
         printf("2. Dequeue\n");
@@ -87,17 +88,19 @@ int main(){
             case 1:
                 printf("Enter value: ");
                 scanf("%d",&value);
-                Enqueue(value);
+                printf("Enter Priority: ");
+                scanf("%d",&priority);
+                Enqueue(value,priority);
                 break;
             case 2:
                 value = dequeue();
                 if(value != -1)
-                    printf("Deleted element: %d\n", value);
+                    printf("%d dequeue from the priority queue\n", value);
                 break;
             case 3:
                 value = peek();
                 if(value != -1)
-                    printf("Front element: %d\n", value);
+                    printf("Highest priority element is %d in queue\n", value);
                 break;
             case 4:
                 display();
@@ -109,4 +112,5 @@ int main(){
                 printf("Invalid Choice\n");
         }
     }
+    return 0;
 }
