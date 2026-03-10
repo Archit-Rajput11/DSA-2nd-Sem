@@ -11,12 +11,41 @@ struct Node* createNode(int data){
     temp->next = NULL;
     return temp;
 }
-void insertInBeg(int data)[
+void insertInBeg(int data){
     struct Node* newNode = createNode(data);
     newNode->next = head;
     head = newNode;
     printf("Node insertes in Beginning!!!\n");
-]
+}
+void insertNodeAtEnd(int data){
+    struct Node* newNode = createNode(data);
+    if(head == NULL)
+        head = newNode;
+    else{
+        struct Node* temp= head;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->next= newNode;
+    }
+    printf("Node Inserted In End!!!\n");
+}
+void insertAtAnyPos(int data, int pos){
+    if(head == NULL)
+        printf("List is empty!!!\n");
+    else if(pos ==0)
+        insertInBeg(data);
+    else{
+        struct Node* temp =head;
+        int i=0;
+        while(temp!=NULL){
+            if(i == pos-1)
+                break;
+            temp = temp->next;
+        }
+        
+    }
+}
 int main(){
     while(1){
             int choice , data , pos;
