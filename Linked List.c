@@ -102,7 +102,7 @@ void displayList(){
     else{
         struct Node* temp = head;
         while(temp != NULL){
-            printf("%d", temp->data);
+            printf("%d ", temp->data);
             temp = temp->next;
         }
         printf("\n");
@@ -125,7 +125,7 @@ void search(int data){
 }
 int main(){
     while(1){
-            int choice , data , pos;
+        int choice , data , pos;
         printf("\n*****Singly Linked List Menu*****\n");
         printf("1. Insert In Beginning\n");
         printf("2. Insert At End\n");
@@ -140,20 +140,40 @@ int main(){
         scanf("%d",&choice);
         switch(choice){
             case 1:
+                printf("Enter Data: ");
+                scanf("%d",&data);
+                insertInBeg(data);
                 break;
             case 2:
+                printf("Enter Data: ");
+                scanf("%d",&data);
+                insertNodeAtEnd(data);
                 break;
             case 3:
+                printf("Enter Position: ");
+                scanf("%d",&pos);
+                printf("Enter Data: ");
+                scanf("%d",&data);
+                insertAtAnyPos(data,pos);
                 break;
             case 4:
+                deleteFromBeg();
                 break;
             case 5:
+                deleteFromEnd();
                 break;
             case 6:
+                printf("Enter Position: ");
+                scanf("%d",&pos);
+                deleteFromAnyPos(pos);
                 break;
             case 7:
+                displayList();
                 break;
             case 8:
+                printf("Enter data to search: ");
+                scanf("%d",&data);
+                search(data);
                 break;
             case 9:
                 exit(0);
