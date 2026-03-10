@@ -36,15 +36,45 @@ void insertAtAnyPos(int data, int pos){
     else if(pos ==0)
         insertInBeg(data);
     else{
-        struct Node* temp =head;
+        struct Node* temp = head;
         int i=0;
         while(temp!=NULL){
             if(i == pos-1)
                 break;
             temp = temp->next;
         }
-        
+        if(temp == NULL)
+            printf("Invalid Position!!!\n");
+        else{
+            struct Node* newNode = createNode(data);
+            newNode->next = temp->next;
+            temp->next = newNode;
+            printf("Node inserted at position %d successfully!!!\n",pos);
+        }
     }
+}
+void deleteFromBeg(){
+    if(head ==NULL)
+        printf("List is Empty!!!\n");
+    else{
+        head = head->next;
+        printf("Node deleted from begining!!!\n");
+    }
+}
+void deleteFromEnd(){
+    if(head == NULL)
+        printf("List is Empty!!!\n");
+    else{
+        struct Node* temp = head;
+        while(temp->next->next!=NULL){
+            temp = temp->next;
+        }
+        temp->next =NULL;
+        printf("Node deleted from end!!!\n");
+    }
+}
+void deleteFromAnyPos(int pos){
+    
 }
 int main(){
     while(1){
