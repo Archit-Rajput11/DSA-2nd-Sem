@@ -67,13 +67,13 @@ void deleteFromBeg(){
     else{
         head = head->next;
         head->prev = NULL;
-        printf("Node deleted from begining!!!\n")
+        printf("Node deleted from begining!!!\n");
     }
 }
 void deleteFromEnd(){
     if(head ==NULL)
         printf("Cannot delete from empty list!!!\n");
-        else if(head->next = NULL)
+    else if(head->next = NULL)
             head =NULL;
     else{
         struct Node* temp = head;
@@ -81,11 +81,59 @@ void deleteFromEnd(){
             temp = temp->next;
         }
         temp->prev->next = NULL;
-        printf("Node deleted from begining!!!\n")
+        printf("Node deleted from begining!!!\n");
     }
 }
 void deleteFromAnyPos(int pos){
-    
+    if(head ==NULL)
+        printf("Cannot delete from empty list!!!\n");
+    else if(pos == 0)
+        deleteFromBeg();
+    else{
+        struct Node* temp = head;
+        int i=0;
+        while(temp!=NULL){
+            if(i == pos)
+                break;
+            temp = temp->next;
+            i++;
+        }
+        if(temp == NULL)
+            printf("Invalid Position !!!\n");
+        else{
+            temp->prev->next =temp->next;
+            if(temp->next != NULL)
+                temp->next->prev =temp->prev;
+            printf("Node deleted from position %d!!!\n",pos);
+        }
+    }
+}
+void displayList(){
+    if(head == NULL)
+        printf("List is empty!!!\n");
+    else{
+        struct Node* temp=head;
+        while(temp!= NULL){
+            printf("%d",temp->data);
+            temp = temp->next;
+        }
+        printf("\n");
+    }
+}
+void search(int value){
+    if(head == NULL)
+        printf("List is empty!!!\n");
+    else{
+        struct Node* temp = head;
+        while(temp!= NULL){
+            if(temp->data == value){
+                printf("Found !!!\n");
+                return;
+            }
+            temp = temp->next;
+        }
+        printf("Not Found!!!\n");
+    }
 }
 int main(){
     while(1){
