@@ -36,6 +36,24 @@ void insertNodeAtEnd(int data){
     }
     printf("Node Inserted!!!\n");
 }
+void insertAtAnyPos(int data, int pos){
+    if(head == NULL){
+        printf("List is Empty\n");
+    }
+    else  if(pos == 0)
+        insertInBeg(data);
+    else{
+        struct Node* temp = head;
+        int i=0;
+        while(temp != NULL){
+            if(i == pos)
+                break;
+            temp = temp->next;
+            i++;
+        }
+    }
+}
+
 int main(){
     while(1){
         int choice , data , pos;
