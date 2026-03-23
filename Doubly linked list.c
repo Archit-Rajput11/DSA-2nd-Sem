@@ -6,11 +6,35 @@ struct Node{
     int data;
     struct Node* next;
 };
+struct Node* head = NULL;
 struct Node* createNode(int data){
     struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = data;
     temp->next = NULL;
+    temp->prev = NULL;
     return temp;
+}
+void insertInBeg(int data){
+    struct Node* newNode = createNode(data);
+    newNode->next = head;
+    head->prev = newNode;
+    head = newNode;
+    printf("Node Inserted!!!\n");
+}
+void insertNodeAtEnd(int data){
+    struct Node* newNode = createNode(data);
+    if(head == NULL){
+        head = newNode;
+    }
+    else{
+        struct Node* temp = head;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->next = newNode;
+        newNode->prev = temp;
+    }
+    printf("Node Inserted!!!\n");
 }
 int main(){
     while(1){
