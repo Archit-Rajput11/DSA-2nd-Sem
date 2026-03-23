@@ -51,13 +51,46 @@ void insertAtAnyPos(int data, int pos){
             temp = temp->next;
             i++;
         }
+        if(temp == NULL)
+            printf("Invalid Position!!!\n");
+        else{
+            struct Node* newNode = createNode(data);
+            temp->next = newNode;
+            newNode->prev = temp;
+            printf("Node inserted at position %d\n",pos);
+        }
     }
 }
-
+void deleteFromBeg(){
+    if(head ==NULL)
+        printf("Cannot delete from empty list!!!\n");
+    else{
+        head = head->next;
+        head->prev = NULL;
+        printf("Node deleted from begining!!!\n")
+    }
+}
+void deleteFromEnd(){
+    if(head ==NULL)
+        printf("Cannot delete from empty list!!!\n");
+        else if(head->next = NULL)
+            head =NULL;
+    else{
+        struct Node* temp = head;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->prev->next = NULL;
+        printf("Node deleted from begining!!!\n")
+    }
+}
+void deleteFromAnyPos(int pos){
+    
+}
 int main(){
     while(1){
         int choice , data , pos;
-        printf("\n*****Singly Linked List Menu*****\n");
+        printf("\n*****Doubly Linked List Menu*****\n");
         printf("1. Insert In Beginning\n");
         printf("2. Insert At End\n");
         printf("3. Insert At Any Position\n");
