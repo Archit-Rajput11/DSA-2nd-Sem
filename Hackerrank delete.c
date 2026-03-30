@@ -36,7 +36,15 @@ int main() {
     if(n==1)
         head = NULL;
     else{
-        
+        int mid =n/2;
+        struct Node* temp = head;
+        int i=0;
+        while(temp != NULL){
+            if(i == mid-1)
+                break;
+            temp = temp ->next;
+            i++;
+        }
     }
     return 0;
 }
