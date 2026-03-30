@@ -8,12 +8,12 @@ struct Node{
 };
 struct Node* head = NULL;
 struct Node* createNode(int data){
-    struct Node* tep =(struct Node*)malloc(sizeof(struct Node));
+    struct Node* temp =(struct Node*)malloc(sizeof(struct Node));
     temp->data = data;
     temp->next = NULL;
     return temp;
 }
-void insertEbd(int data){
+void insertEnd(int data){
     struct Node* newNode = createNode(data);
     if(head == NULL){
         head = newNode;
@@ -24,6 +24,17 @@ void insertEbd(int data){
             temp = temp->next;
         }
         temp->next = newNode;
+    }
+}
+void display(){
+    if(head==NULL)
+        printf("EMPTY");
+    else{
+        struct Node* temp = head;
+        while(temp != NULL){
+            printf("%d ",temp->data);
+            temp = temp->next;
+        }
     }
 }
 int main() {
@@ -45,6 +56,8 @@ int main() {
             temp = temp ->next;
             i++;
         }
+        temp->next = temp->next->next;
     }
+    display();
     return 0;
 }
