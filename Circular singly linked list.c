@@ -29,10 +29,44 @@ void insertInBeg(int data){
     printf("Node inserted in beginning!!!\n");
 }
 void insertNodeAtEnd(int data){
-    
+    struct Node* newNode = createNode(data);
+    if(head == NULL){
+        head = newNode;
+        newNode->next = head;
+    }
+    else{
+        struct Node* temp = head;
+        while(temp->next != head){
+            temp = temp->next;
+        }
+        temp->next = newNode;
+        newNode->next = head;
+    }
+    printf("Node inserted at end!!!\n");
 }
 void insertAtAnyPos(int data, int pos){
-    
+    if(head == NULL)
+        printf("List is empty!!!\n");
+    else if(pos ==0)
+        insertInBeg(data);
+    else{
+        struct Node* temp = head;
+        int i=0;
+        while(temp!=NULL){
+            if(i == pos-1)
+                break;
+            temp = temp->next;
+            i++;
+        }
+        if(temp == NULL)
+            printf("Invalid Position!!!\n");
+        else{
+            struct Node* newNode = createNode(data);
+            newNode->next = temp->next;
+            temp->next = newNode;
+            printf("Node inserted at position %d successfully!!!\n",pos);
+        }
+    }
 }
 void deleteFromBeg(){
     
@@ -56,7 +90,25 @@ void displayList(){
     }
 }
 void search(int data){
-    
+    if(head == NULL){
+        printf("List is Empty!!!\n");
+        return;
+    }
+    struct Node* temp = head;
+    int pos = 1;
+    int found = 0;
+    do{
+        if(temp->data == data){
+            printf("Element found at position %d\n", pos);
+            found = 1;
+            break;
+        }
+        temp = temp->next;
+        pos++;
+    }while(temp != head);
+    if(!found){
+        printf("Element not found in the list\n");
+    }
 }
 int main(){
     while(1){
