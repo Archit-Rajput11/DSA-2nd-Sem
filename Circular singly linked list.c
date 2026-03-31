@@ -69,13 +69,59 @@ void insertAtAnyPos(int data, int pos){
     }
 }
 void deleteFromBeg(){
-    
+    if(head == NULL)
+        printf("List is empty!!!\n");
+    else if(head->next = head){
+        head = NULL;
+        printf("Node deleted from beginning!!!\n");
+    }
+    else{
+        struct Node* temp = head;
+        while(temp->next != head){
+            temp = temp->next;
+        }
+        temp->next = head->next;
+        head = head->next;
+        printf("Node deleted from beginning!!!\n");
+    }
 }
 void deleteFromEnd(){
-    
+    if(head == NULL)
+        printf("List is empty!!!\n");
+    else if(head->next = head){
+        head = NULL;
+        printf("Node deleted from End!!!\n");
+    }
+    else{
+        struct Node* temp = head;
+        while(temp->next->next != head){
+            temp = temp->next;
+        }
+        temp->next = head->next;
+        printf("Node deleted from End!!!\n");
+    }
 }
 void deleteFromAnyPos(int pos){
-    
+    if(head == NULL)
+        printf("List is Empty!!!\n");
+    else if(pos == 0)
+        deleteFromBeg();
+    else{
+        struct Node* temp = head;
+        int i=0;
+        while( temp != NULL){
+            if(i == pos-1)
+                break;
+            temp = temp->next;
+            i++;
+        }
+        if(temp == NULL || temp->next == NULL)
+            printf("Invalid Position!!!\n");
+        else{
+            temp->next = temp->next->next;
+            printf("Node deleted from position %d successfully!!!\n",pos);
+        }
+    }
 }
 void displayList(){
     if(head == NULL)
@@ -113,7 +159,7 @@ void search(int data){
 int main(){
     while(1){
         int choice , data , pos;
-        printf("\n*****Singly Linked List Menu*****\n");
+        printf("\n*****Circular Singly Linked List Menu*****\n");
         printf("1. Insert In Beginning\n");
         printf("2. Insert At End\n");
         printf("3. Insert At Any Position\n");
