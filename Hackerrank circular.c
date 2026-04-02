@@ -97,7 +97,6 @@ void deleteByValue(int x){
         deleteFromBeg();
         return;
     }
-
     do{
         prev = temp;
         temp = temp->next;
