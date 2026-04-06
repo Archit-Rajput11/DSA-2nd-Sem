@@ -16,8 +16,10 @@ void Enqueue(int data,int priority){
         newNode->next = NULL;
         if(rear == NULL)
             rear = newNode;
-        else
+        else{
             rear->next = newNode;
+            rear = newNode;
+        }
         if(front == NULL)
             front =rear;
         printf("Element added in queue\n");
