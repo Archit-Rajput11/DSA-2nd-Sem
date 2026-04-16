@@ -1,14 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define max 100
-int tree[max],idx=0;
+int tree[max];
 void initTree(){
     for(int i =0; i<max; i++){
         tree[i] =-1;
     }
 }
-void insert(int val){
-    
+void insert(int index, int val){
+    if(index >= max)
+        printf("Cannot insert in tree!!!\n");
+    else if(tree[index] == -1)
+        tree[index] = val;
+    else if(val < tree[index])
+        insert(2*index+1, val);
+    else
+        insert(2*index+2, val);
 }
 void preOrder(int index){
     if(index >= max || tree[index] == -1)
@@ -47,7 +54,7 @@ int main(){
             case 1:
                 printf("Enter value: ");
                 scanf("%d",&value);
-                insert(value);
+                insert(0,value);
                 break;
             case 2:
                 preOrder(0);
