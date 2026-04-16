@@ -28,12 +28,29 @@ void levelOrder(){
     }
 }
 void preOrder(int index){
-    if(tree[index] != -1){
-        printf("%d")
-    }
+    if(index >= max || tree[index] == -1)
+        return;
+    printf("%d ",tree[index]);
+    preOrder(2*index+1);
+    preOrder(2*index+2);
+}
+void postOrder(int index){
+    if(index >= max || tree[index] == -1)
+        return;
+    postOrder(2*index+1);
+    postOrder(2*index+2);
+    printf("%d ",tree[index]);
+}
+void inOrder(int index){
+    if(index >= max || tree[index] == -1)
+        return;
+    inOrder(2*index+1);
+    printf("%d ",tree[index]);
+    inOrder(2*index+2);
 }
 int main(){
     int choice,value;
+    initTree();
     while(1){
         printf("\n*****Binary Tree Menu*****\n");
         printf("1. Insert\n");
@@ -54,11 +71,13 @@ int main(){
                 levelOrder();
                 break;
             case 3:
-            preOrder();
+                preOrder(0);
                 break;
             case 4:
+                inOrder(0);
                 break;
             case 5:
+                postOrder(0);
                 break;
             case 6:
                 exit(0);
