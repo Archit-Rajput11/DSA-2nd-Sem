@@ -60,7 +60,7 @@ void postOrder(struct Node* root){
 }
 int main(){
     int choice,value;
-    initTree();
+    struct Node* root = NULL;
     while(1){
         printf("\n*****Binary Tree Menu*****\n");
         printf("1. Insert\n");
@@ -74,16 +74,16 @@ int main(){
             case 1:
                 printf("Enter value: ");
                 scanf("%d",&value);
-                insert(value);
+                root = insert(root,value);
                 break;
             case 2:
-                preOrder(0);
+                preOrder(root);
                 break;
             case 3:
-                inOrder(0);
+                inOrder(root);
                 break;
             case 4:
-                postOrder(0);
+                postOrder(root);
                 break;
             case 5:
                 exit(0);
