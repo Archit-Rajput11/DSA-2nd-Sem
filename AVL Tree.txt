@@ -21,5 +21,5 @@ Basic of Graphs
 -> Edge:
   Edges are connections between pairs of vertices. They represent relationship or interactions between the entities represented by the vertices.
 Types of Graph:
-1. Directed Graph
-2. Undirected Graph.
+1. Directed Graph : A directed graph (also called a digraph) is a type of graph where edges have a direction.
+2. Undirected Graph : An undirected graph in C is a data structure that represents a set of vertices (nodes) connected by edges where edges have no direction — meaning the connection between two vertices works both ways.
