@@ -1,0 +1,22 @@
+AVL Tree
+-> An AVL tree data structure is a self- balancing binary search tree(BST) that maintains baslance to ensure efficient operations.
+-> Full form of AVL tree is Adelson-Velsky and Landis.
+-> AVL tree ensures that the heights of subtrees differ by at most 1.
+-> In an AVL data structure, each node has a balance factor. This balance factor is the difference height between the left and right subtrees.
+-> The balance factor can only be -1,0 or 1.
+-> If the balance factor gets outside this range, the tree does a rotation to fix itself. This keeps the tree short and wide, making it faster to search, insert, and delete items.
+******************************************************************************************************************************************************************************************
+
+WHAT IS GRAPH ?
+-> A graph is a non linear data structure that consists of nodes(vertices) and edges(connecting nodes).
+-> It is used to represent relationships b/w deff entities,making it a versatile and powerful tool in computer science.
+Application of GRAPH:
+1. MAP
+2. Social Media
+3. Delivery Network
+
+Basic of Graphs
+-> Vertex:
+  VERTEX ARE THE FUNDAMENTAL UNITS OF A GRAPH.
+-> Edge:
+  Edges are connections between pairs of vertices. They represent relationship or interactions between the entities represented by the vertices.
