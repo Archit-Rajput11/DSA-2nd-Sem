@@ -66,6 +66,37 @@ struct Node* search(struct Node* root, int val){
     else
         return search(root->right,val);
 }
+struct Node* findMin(struct Node* root){
+    while(root->left != NULL){
+        root = root->left;
+    }
+    return root;
+}
+struct Node* delete(struct Node* root, int val){
+    if(root == NULL)
+        return NULL;
+    else if(val < root->data)
+        root->left = delete(root->left,val);
+    else if( val> root->data)
+        root->right = delete(root->right,val);
+    else{
+        //case 1: zero child
+        if(root->left == NULL && root->right == NULL)
+            return  NULL;
+        //case 2: one child
+        if(root->left == NULL)
+            return root->right;
+        else if(root->right == NULL)
+            return root->left;
+        //case3 : two child
+        else{
+            struct Node* temp = findMin(root->right);
+            root->data = temp->data;
+            root->right = delete(root->right,temp->data);
+        }
+    }
+    return root;
+}
 int main(){
     int choice,value;
     struct Node* root = NULL;
@@ -104,6 +135,12 @@ int main(){
                     printf("Element Found\n");
                 break;
             case 6:
+                printf("Enter element to delete: ");
+                scanf("%d",&value);
+                if(delete(root,value)== NULL)
+                    printf("Deleting element not found\n");
+                else
+                    printf("Element Deleted\n");
                 break;
             case 7:
                 exit(0);
