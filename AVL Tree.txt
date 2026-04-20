@@ -20,3 +20,6 @@ Basic of Graphs
   VERTEX ARE THE FUNDAMENTAL UNITS OF A GRAPH.
 -> Edge:
   Edges are connections between pairs of vertices. They represent relationship or interactions between the entities represented by the vertices.
+Types of Graph:
+1. Directed Graph
+2. Undirected Graph.
