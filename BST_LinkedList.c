@@ -96,6 +96,12 @@ int main(){
                 postOrder(root);
                 break;
             case 5:
+                printf("Enter Data: ");
+                scanf("%d",&value);
+                if(search(root,value)==NULL)
+                    printf("Element not found\n");
+                else
+                    printf("Element Found\n");
                 break;
             case 6:
                 break;
@@ -106,5 +112,5 @@ int main(){
         }
     }
     return 0;
-}0                                       
+}                                     
 
