@@ -13,7 +13,7 @@ int main(){
     scanf("%d",&val);
     int startIdx = 0;
     int endIdx = n-1;
-    while("startIdx <= endIdx"){
+    while(startIdx <= endIdx){
         int mid = startIdx + (endIdx - startIdx)/2;
         if(val == arr[mid]){
             printf("Found!!!\n");
