@@ -1,5 +1,21 @@
 //Quick sort      
 #include<stdio.h>
+int partitition(int *arr,int start,int end){
+    int idx = start-1,pivat =arr[end];
+    for(int j=start;j<end;j++){
+        if(arr[j]<pivat){
+            idx++;
+            int temp =arr[idx];
+            arr[idx] = arr[j];
+            arr[j] = temp;
+        }
+    }
+    idx++;
+    int temp = arr[idx];
+    arr[idx] = arr[end];
+    arr[end] = temp;
+    return idx;
+}
 void QuickSort(int *arr, int start, int end){
     if(start<end){
         int pivat = partition(arr,start,end);
