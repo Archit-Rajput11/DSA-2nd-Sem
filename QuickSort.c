@@ -1,6 +1,6 @@
 //Quick sort      
 #include<stdio.h>
-int partitition(int *arr,int start,int end){
+int partition(int *arr,int start,int end){
     int idx = start-1,pivat =arr[end];
     for(int j=start;j<end;j++){
         if(arr[j]<pivat){
